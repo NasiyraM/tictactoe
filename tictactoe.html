@@ -25,8 +25,8 @@
                     columnElement.setAttribute("style" ,"height:100px");
                     columnElement.id = i + '-' + j;
                     columnElement.addEventListener('click', function() {
-                        alert(this.id);
-                        this.innerHTML ="You Clicked Here";
+                        this.innerHTML ="X";
+                        checkWin();
                     });
                     boardArray[i][j] = columnElement;
                     rowElement.appendChild(columnElement);
@@ -35,6 +35,11 @@
             }//end for i
             console.log(boardArray);
         }//end function makeBoard
+        function checkWin() {
+            if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
+                alert("You WIn");
+            }
+        }
         var board = document.getElementById("board");
         var boardArray = [];
         makeBoard(board);
