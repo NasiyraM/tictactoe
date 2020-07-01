@@ -5,6 +5,7 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
+        <h1 class="text-center">Tic Tac Toe</h1>
         <div class="container" id="board"></div>
     </body>
     <script type="text/javascript">
@@ -16,8 +17,12 @@
                 rowElement.className = 'row';
                 for (let j = 0; j < columns; j++) {
                     var columnElement = document.createElement('div');
-                    columnElement.className = 'col-sm-4 border';
+                    columnElement.className = 'col-sm-4 border text-center';
                     columnElement.innerHTML = "Row " + i + " Column " + j;
+                    columnElement.setAttribute("style" ,"height:100px");
+                    columnElement.addEventListener('click', function() {
+                        alert("You Click me!");
+                    });
                     rowElement.appendChild(columnElement);
                 }//end for j
                 boardElement.appendChild(rowElement);
