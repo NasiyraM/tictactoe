@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container" id="board"></div>
+    </body>
+    <script type="text/javascript">
+        function makeBoard(boardElement) {
+            var rows = 3;
+            var columns = 3;
+            for (let i = 0; i < rows; i++) {
+                var rowElement = document.createElement('div');
+                rowElement.className = 'row';
+                for (let j = 0; j < columns; j++) {
+                    var columnElement = document.createElement('div');
+                    columnElement.className = 'col-sm-4 border';
+                    columnElement.innerHTML = "Row " + i + " Column " + j;
+                    rowElement.appendChild(columnElement);
+                }//end for j
+                boardElement.appendChild(rowElement);
+            }//end for i
+        }//end function makeBoard
+        var board = document.getElementById("board");
+        makeBoard(board);
+    </script>
+</html>
