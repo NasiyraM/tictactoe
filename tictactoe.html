@@ -15,20 +15,28 @@
             for (let i = 0; i < rows; i++) {
                 var rowElement = document.createElement('div');
                 rowElement.className = 'row';
+                if(!boardArray[i]) {
+                    boardArray[i] = [];
+                }
                 for (let j = 0; j < columns; j++) {
                     var columnElement = document.createElement('div');
                     columnElement.className = 'col-sm-4 border text-center';
                     columnElement.innerHTML = "Row " + i + " Column " + j;
                     columnElement.setAttribute("style" ,"height:100px");
+                    columnElement.id = i + '-' + j;
                     columnElement.addEventListener('click', function() {
-                        alert("You Click me!");
+                        alert(this.id);
+                        this.innerHTML ="You Clicked Here";
                     });
+                    boardArray[i][j] = columnElement;
                     rowElement.appendChild(columnElement);
                 }//end for j
                 boardElement.appendChild(rowElement);
             }//end for i
+            console.log(boardArray);
         }//end function makeBoard
         var board = document.getElementById("board");
+        var boardArray = [];
         makeBoard(board);
     </script>
 </html>
